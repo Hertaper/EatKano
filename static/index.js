@@ -178,7 +178,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameTimeNum--;
         _gameStartTime++;
         if (mode === MODE_NORMAL && _gameTimeNum <= 0) {
-            GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
+            GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;回班！';
             gameOver();
             GameLayerBG.className += ' flash';
             createjs.Sound.play("end");
@@ -439,11 +439,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             SubmitResults();
         }
 
-        if (cps <= 5) return '试着好好练一下？';
-        if (cps <= 8) return 'TCL';
-        if (cps <= 10)  return 'TQL';
-        if (cps <= 15) return '您';
-        return '人？';
+        if (cps <= 4) return '你是哪个班的！';
+        if (cps <= 6) return '你是哪个班的？';
+        if (cps <= 9)  return '你是那个班的？';
+        if (cps <= 12) return '您是哪个班的？';
+        return '您是人？';
     }
 
     function toStr(obj) {
@@ -480,7 +480,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function initSetting() {
         $("#username").val(cookie("username") ? cookie("username") : "");
         $("#message").val(cookie("message") ? cookie("message") : "");
-        $("title").text(cookie("title") ? cookie("title") : "吃掉小鹿乃");
+        $("title").text(cookie("title") ? cookie("title") : "吃掉lcw");
         let keyboard = cookie('keyboard');
         if (keyboard) {
             keyboard = keyboard.toString().toLowerCase();
